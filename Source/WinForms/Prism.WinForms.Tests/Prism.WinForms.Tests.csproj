@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B8CCD16-EBF3-4BD7-81E2-5D2500CCCCA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prism.WinForms.Tests</RootNamespace>
+    <AssemblyName>Prism.WinForms.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <NoWarn>0067, 0649, 0219</NoWarn>
+    <CodeAnalysisRuleSet>..\..\Prism.TestProjects.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0067, 0649, 0219</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>..\..\Prism.TestProjects.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="BootstrapperFixture.cs" />
+    <Compile Include="CollectionChangedTracker.cs" />
+    <Compile Include="CollectionExtensionsFixture.cs" />
+    <Compile Include="CompilerHelper.Desktop.cs" />
+    <Compile Include="ExceptionAssert.cs" />
+    <Compile Include="ExceptionExtensionsFixture.cs" />
+    <Compile Include="ListDictionaryFixture.cs" />
+    <Compile Include="Logging\TextLoggerFixture.cs" />
+    <Compile Include="Logging\TraceLoggerFixture.Desktop.cs" />
+    <Compile Include="Mocks\ViewModels\MockViewModel.cs" />
+    <Compile Include="Mocks\Views\Mock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mocks\Views\MockView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServiceLocatorExtensionsFixture.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockAbstractModule.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockAttributedModule.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockDependantModule.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockDependencyModule.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockExposingTypeFromGacAssemblyModule.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockModuleA.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockModuleReferencedAssembly.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockModuleReferencingAssembly.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockModuleReferencingOtherModule.cs" />
+    <EmbeddedResource Include="Mocks\Modules\MockModuleThrowingException.cs" />
+    <Compile Include="Mocks\MockConfigurationStore.Desktop.cs" />
+    <Compile Include="Mocks\MockContainerAdapter.cs" />
+    <Compile Include="Mocks\MockLogger.cs" />
+    <Compile Include="Mocks\MockModuleTypeLoader.cs" />
+    <Compile Include="Modularity\AssemblyResolverFixture.Desktop.cs" />
+    <Compile Include="Modularity\ConfigurationModuleCatalogFixture.Desktop.cs" />
+    <Compile Include="Modularity\ConfigurationStoreFixture.Desktop.cs" />
+    <Compile Include="Modularity\DirectoryModuleCatalogFixture.Desktop.cs" />
+    <Compile Include="Modularity\FileModuleTypeLoaderFixture.Desktop.cs" />
+    <Compile Include="Modularity\ModuleAttributeFixture.Desktop.cs" />
+    <Compile Include="Modularity\ModuleCatalogFixture.cs" />
+    <Compile Include="Modularity\ModuleDependencySolverFixture.cs" />
+    <Compile Include="Modularity\ModuleInfoGroupExtensionsFixture.cs" />
+    <Compile Include="Modularity\ModuleInfoGroupFixture.cs" />
+    <Compile Include="Modularity\ModuleInitializerFixture.cs" />
+    <Compile Include="Modularity\ModuleManagerFixture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prism.WinForms\Prism.WinForms.csproj">
+      <Project>{ca5a045d-a4b3-4df3-b779-699f52385467}</Project>
+      <Name>Prism.WinForms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Modularity\ModuleCatalogXaml\SimpleModuleCatalog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modularity\NotAValidDotNetDll.txt.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
